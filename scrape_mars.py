@@ -21,10 +21,9 @@ def scrape_info():
   marsHemispheresUrl = 'https://marshemispheres.com/'
   imageUrls = scrapMarsHermispheres(browser, marsHemispheresUrl)
 
-  # print(imageUrls)
   data = {
     'news_title': newsTitle,
-    'news_paragraph': newsParagraph
+    'news_paragraph': newsParagraph,
     'feature_image_url': feature_image_url,
     'marsFacts': marsFactsTable,
     'hemispheresImageUrls': imageUrls
@@ -58,7 +57,7 @@ def scrapeFeatureImage(browser, url):
   header_div = soup.find('div', class_='header')
 
   header_image = header_div.find('img', class_='headerimage')
-  feature_image_url = url + header_image['src']
+  feature_image_url = url + '/' + header_image['src']
   return feature_image_url
 
 def scrapMarsFacts(url):
